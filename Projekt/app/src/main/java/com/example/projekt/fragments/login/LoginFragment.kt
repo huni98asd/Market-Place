@@ -25,8 +25,8 @@ class LoginFragment : Fragment() {
     private lateinit var loginViewModel: LoginViewModel
     lateinit var btnLogin:Button
     lateinit var btnSignIn:Button
-    lateinit var btnForgetPassword:Button
-    lateinit var inputEmail:EditText
+    lateinit var btnForgetPassword:TextView
+    lateinit var userName:EditText
     lateinit var inputPassword:EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,21 +42,36 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_login, container, false)
 
-
-        initializeView(view)
-        login()
+        if( view != null) {
+            initializeView(view)
+            login()
+            register()
+            forgetPassword()
+        }
 
         return view
     }
 
+    private fun register(){
+        btnSignIn.setOnClickListener{
+            this.findNavController().navigate(R.id.action_loginFragment_to_registrationFragment)
+        }
+    }
+
+    private fun forgetPassword(){
+        btnForgetPassword.setOnClickListener{
+            this.findNavController().navigate(R.id.action_loginFragment_to_forgetPasswordFragment)
+        }
+    }
+
     private fun login() {
         btnLogin.setOnClickListener{
-            if(inputEmail.length() == 0 && inputPassword.length() == 0){
+            if(userName.length() == 0 && inputPassword.length() == 0){
                 Toast.makeText(activity,"Kérem töltse ki a mezöket",Toast.LENGTH_SHORT).show()
             }else{
                 loginViewModel.user.value.let {
                     if (it != null) {
-                        it.username = inputEmail.text.toString()
+                        it.username = userName.text.toString()
                     }
                     if (it != null) {
                         it.password = inputPassword.text.toString()
@@ -65,14 +80,16 @@ class LoginFragment : Fragment() {
                 lifecycleScope.launch {
                     loginViewModel.login()
                 }
+                loginViewModel.token.observe(viewLifecycleOwner){
+                    Log.d("xxx", "navigate to list")
+                    this.findNavController().navigate(R.id.action_loginFragment_to_listFragment)
+                }
+            }
 
-            }
-            loginViewModel.token.observe(viewLifecycleOwner){
-                Log.d("xxx", "navigate to list")
-                this.findNavController().navigate(R.id.action_loginFragment_to_listFragment)
-            }
         }
     }
+
+
 
 
     private fun initializeView(view: View) {
@@ -80,7 +97,7 @@ class LoginFragment : Fragment() {
         btnLogin = findViewById(R.id.btnLogin)
         btnSignIn = findViewById(R.id.btnSignUp)
         btnForgetPassword = findViewById(R.id.btnForgetPassword)
-        inputEmail = findViewById(R.id.editTextEmailAddress)
+        userName = findViewById(R.id.editTextUserName)
         inputPassword = findViewById(R.id.editTextPassword)
         }
     }
