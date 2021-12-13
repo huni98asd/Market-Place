@@ -1,9 +1,9 @@
+/*
 package com.example.projekt.fragments.product
 
 import android.app.Activity
 import android.os.Bundle
 import android.view.*
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -19,7 +19,9 @@ import com.example.projekt.repository.Repository
 import com.example.projekt.viewmodels.ListViewModel
 import com.example.projekt.viewmodels.ListViewModelFactory
 
-class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.OnItemLongClickListener,DataAdapter.ClickOrderButton {
+
+class MyMarketListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.OnItemLongClickListener  {
+
     lateinit var listViewModel: ListViewModel
     private lateinit var recycler_view: RecyclerView
     private lateinit var adapter: DataAdapter
@@ -33,8 +35,8 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_list, container, false)
@@ -48,14 +50,14 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
     }
 
     private fun setupRecyclerView(){
-        adapter = DataAdapter(ArrayList<Product>(), this.requireContext(), this, this,this)
+        adapter = DataAdapter(ArrayList<Product>(), this.requireContext(), this, this)
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(this.context)
         recycler_view.addItemDecoration(
-                DividerItemDecoration(
-                        activity,
-                        DividerItemDecoration.VERTICAL
-                )
+            DividerItemDecoration(
+                activity,
+                DividerItemDecoration.VERTICAL
+            )
         )
         recycler_view.setHasFixedSize(true)
     }
@@ -77,18 +79,12 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
     }
 
 
+
     override fun onItemClick(position: Int) {
-        //
         this.findNavController().navigate(R.id.action_listFragment_to_productDetailsFragment)
-        //Toast.makeText(context,position.toString(),Toast.LENGTH_SHORT).show()
     }
 
     override fun onItemLongClick(position: Int) {
 //        TODO("Not yet implemented")
     }
-
-    override fun addOrder(position: Int) {
-        Toast.makeText(context,position.toString(),Toast.LENGTH_SHORT).show()
-    }
-
-}
+}*/

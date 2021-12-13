@@ -38,5 +38,37 @@
         android:id="@+id/listFragment"
         android:name="com.example.projekt.fragments.product.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.projekt.fragments.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_updatingProfileFragment"
+            app:destination="@id/updatingProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.projekt.fragments.product.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" />
+    <fragment
+        android:id="@+id/myMarketListFragment"
+        android:name="com.example.projekt.fragments.product.MyMarketListFragment"
+        android:label="fragment_my_market_list"
+        tools:layout="@layout/fragment_my_market_list" />
+    <fragment
+        android:id="@+id/updatingProfileFragment"
+        android:name="com.example.projekt.fragments.profile.UpdatingProfileFragment"
+        android:label="fragment_updating_profile"
+        tools:layout="@layout/fragment_updating_profile" />
+    <fragment
+        android:id="@+id/myFaresListFragment"
+        android:name="com.example.projekt.fragments.product.MyFaresListFragment"
+        android:label="fragment_my_fares_list"
+        tools:layout="@layout/fragment_my_fares_list" />
 </navigation>
