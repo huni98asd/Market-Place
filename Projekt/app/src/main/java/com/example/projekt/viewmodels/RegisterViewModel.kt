@@ -7,31 +7,30 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.projekt.MyApplication
 import com.example.projekt.data.LoginRequest
+import com.example.projekt.data.Register
 import com.example.projekt.data.User
 import com.example.projekt.repository.Repository
 
-class
-LoginViewModel(val context: Context, val repository: Repository) : ViewModel() {
+class RegisterViewModel(val context: Context, val repository: Repository) : ViewModel()  {
     var token: MutableLiveData<String> = MutableLiveData()
     var user = MutableLiveData<User>()
-    var showBottomNav:MutableLiveData<Boolean> = MutableLiveData(true)
 
-    init {
+    init{
+        Log.d("xxx", "ListViewModel constructor - Token: ${MyApplication.token}")
         user.value = User()
     }
 
-    suspend fun login() {
+
+    suspend fun registration() {
         val request =
-            LoginRequest(username = user.value!!.username, password = user.value!!.password)
+                Register(username = user.value!!.username, phone_number = user.value!!.phone_number, email = user.value!!.email ,password = user.value!!.password)
         try {
-            val result = repository.login(request)
+            val result = repository.register(request)
             MyApplication.token = result.token
             token.value = result.token
             Log.d("xxx", "MyApplication - token:  ${MyApplication.token}")
         } catch (e: Exception) {
             Log.d("xxx", "LoginViewModel - exception: ${e.toString()}")
-            Toast.makeText(context,"Helytelen adatok",Toast.LENGTH_SHORT).show()
-
         }
     }
 }

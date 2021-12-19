@@ -1,4 +1,3 @@
-/*
 package com.example.projekt.fragments.product
 
 import android.app.Activity
@@ -20,7 +19,7 @@ import com.example.projekt.viewmodels.ListViewModel
 import com.example.projekt.viewmodels.ListViewModelFactory
 
 
-class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.OnItemLongClickListener  {
+class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.OnItemLongClickListener,DataAdapter.ClickOrderButton  {
 
     lateinit var listViewModel: ListViewModel
     private lateinit var recycler_view: RecyclerView
@@ -42,15 +41,16 @@ class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAd
         val view =  inflater.inflate(R.layout.fragment_list, container, false)
         recycler_view = view.findViewById(R.id.recycler_view)
         setupRecyclerView()
-        listViewModel.products.observe(viewLifecycleOwner){
-            adapter.setData(listViewModel.products.value as ArrayList<Product>)
+        /*listViewModel.products.observe(viewLifecycleOwner){
+            if(listViewModel.products.value == listViewModel.listOrder )
+            adapter.setData(listViewModel.products.value  as ArrayList<Product>)
             adapter.notifyDataSetChanged()
-        }
+        }*/
         return view
     }
 
     private fun setupRecyclerView(){
-        adapter = DataAdapter(ArrayList<Product>(), this.requireContext(), this, this)
+        adapter = DataAdapter(ArrayList<Product>(), this.requireContext(), this, this,this)
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(this.context)
         recycler_view.addItemDecoration(
@@ -88,4 +88,8 @@ class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAd
 //        TODO("Not yet implemented")
     }
 
-}*/
+    override fun addOrder(position: Int) {
+        TODO("Not yet implemented")
+    }
+
+}

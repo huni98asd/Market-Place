@@ -5,9 +5,10 @@ import com.squareup.moshi.JsonClass
 data class User(
         var username: String="",
         var password: String="",
-        val email: String="",
+        var email: String="",
         var phone_number: String=""
 )
+
 
 @JsonClass(generateAdapter = true)
 data class LoginRequest (
@@ -23,4 +24,30 @@ data class LoginResponse (
     var token: String,
     var creation_time: Long,
     var refresh_time: Long
+)
+
+@JsonClass(generateAdapter = true)
+data class Register(
+    var username: String,
+    var email: String,
+    var phone_number: String="",
+    var password: String
+)
+
+@JsonClass(generateAdapter = true)
+data class RegisterResponse (
+        var username: String,
+        var email: String,
+        var phone_number: Int = 0,
+        var token: String,
+        var creation_time: Long
+)
+
+@JsonClass(generateAdapter = true)
+data class getUser(
+        var username: String,
+        var email: String,
+        var phone_number: Int = 0,
+        var password: String,
+        var pic: Int
 )

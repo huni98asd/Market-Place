@@ -1,4 +1,3 @@
-/*
 package com.example.projekt.fragments.product
 
 import android.app.Activity
@@ -20,9 +19,9 @@ import com.example.projekt.viewmodels.ListViewModel
 import com.example.projekt.viewmodels.ListViewModelFactory
 
 
-class MyMarketListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.OnItemLongClickListener  {
-
-    lateinit var listViewModel: ListViewModel
+class MyMarketListFragment //: Fragment() , DataAdapter.OnItemClickListener, DataAdapter.OnItemLongClickListener  {
+{
+   /* lateinit var listViewModel: ListViewModel
     private lateinit var recycler_view: RecyclerView
     private lateinit var adapter: DataAdapter
     lateinit var fav: MenuItem
@@ -86,5 +85,5 @@ class MyMarketListFragment : Fragment() , DataAdapter.OnItemClickListener, DataA
 
     override fun onItemLongClick(position: Int) {
 //        TODO("Not yet implemented")
-    }
-}*/
+    }*/
+}

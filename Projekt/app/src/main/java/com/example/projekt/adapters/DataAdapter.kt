@@ -59,7 +59,6 @@ RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
             return true
         }
 
-
         fun addOrder(position: Int) {
             listener3.addOrder(position)
         }

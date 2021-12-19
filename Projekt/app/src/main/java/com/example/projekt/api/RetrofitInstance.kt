@@ -1,11 +1,14 @@
 package com.example.projekt.api
 
 
+import com.example.projekt.utils.Constants
 import com.example.projekt.utils.Constants.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.Multipart
+import retrofit2.http.POST
 
 object RetrofitInstance {
     private val moshi = Moshi.Builder()
@@ -22,5 +25,6 @@ object RetrofitInstance {
         retrofit.create(MarketApi :: class.java)
     }
 
+   
 
 }

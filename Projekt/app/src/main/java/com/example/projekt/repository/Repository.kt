@@ -1,8 +1,7 @@
 package com.example.projekt.repository
 
 import com.example.projekt.api.RetrofitInstance
-import com.example.projekt.data.LoginRequest
-import com.example.projekt.data.LoginResponse
+import com.example.projekt.data.*
 import com.example.projekt.model.ProductResponse
 
 class  Repository {
@@ -12,5 +11,13 @@ class  Repository {
 
     suspend fun getProducts(token: String): ProductResponse {
         return RetrofitInstance.api.getProducts(token)
+    }
+
+    suspend fun getProfil(token: String):User{
+        return RetrofitInstance.api.profil(token)
+    }
+
+    suspend fun register(request: Register): RegisterResponse {
+        return RetrofitInstance.api.register(request)
     }
 }
