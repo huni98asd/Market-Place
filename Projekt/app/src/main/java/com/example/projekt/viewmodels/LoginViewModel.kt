@@ -15,6 +15,7 @@ LoginViewModel(val context: Context, val repository: Repository) : ViewModel() {
     var token: MutableLiveData<String> = MutableLiveData()
     var user = MutableLiveData<User>()
     var showBottomNav:MutableLiveData<Boolean> = MutableLiveData(true)
+    var showFloatingBottom:MutableLiveData<Boolean> = MutableLiveData(false)
 
     init {
         user.value = User()

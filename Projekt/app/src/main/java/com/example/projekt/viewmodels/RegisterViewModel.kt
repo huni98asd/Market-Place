@@ -26,8 +26,8 @@ class RegisterViewModel(val context: Context, val repository: Repository) : View
                 Register(username = user.value!!.username, phone_number = user.value!!.phone_number, email = user.value!!.email ,password = user.value!!.password)
         try {
             val result = repository.register(request)
-            MyApplication.token = result.token
-            token.value = result.token
+            MyApplication.token = result.mesege
+            token.value = result.mesege
             Log.d("xxx", "MyApplication - token:  ${MyApplication.token}")
         } catch (e: Exception) {
             Log.d("xxx", "LoginViewModel - exception: ${e.toString()}")

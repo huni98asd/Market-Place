@@ -14,4 +14,18 @@
     <string name="email">Email</string>
     <string name="username">Username</string>
     <string name="phon_number">Phon Number</string>
+
+    <string-array name="amountPrice">
+        <item>RON</item>
+        <item>HUF</item>
+        <item>EURO</item>
+        <item>USD</item>
+    </string-array>
+
+    <string-array name="AvailableAmount">
+        <item>Kg</item>
+        <item>g</item>
+        <item>mg</item>
+    </string-array>
+
 </resources>

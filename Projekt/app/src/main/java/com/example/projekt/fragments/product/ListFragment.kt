@@ -39,7 +39,7 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
         val factory = ListViewModelFactory(Repository())
         val factory2 = LoginViewModelFactory(this.requireContext(), Repository())
         listViewModel = ViewModelProvider(this, factory).get(ListViewModel::class.java)
-        loginViewModel = ViewModelProvider(requireActivity(), factory).get(LoginViewModel::class.java)
+        loginViewModel = ViewModelProvider(requireActivity(), factory2).get(LoginViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -56,6 +56,7 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
             adapter.notifyDataSetChanged()
         }
         loginViewModel.showBottomNav.value = true
+        loginViewModel.showFloatingBottom.value = false
         return view
     }
 
@@ -63,12 +64,7 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
         adapter = DataAdapter(ArrayList<Product>(), this.requireContext(), this, this, this)
         recycler_view.adapter = adapter
         recycler_view.layoutManager = LinearLayoutManager(this.context)
-        recycler_view.addItemDecoration(
-                DividerItemDecoration(
-                        activity,
-                        DividerItemDecoration.VERTICAL
-                )
-        )
+        recycler_view.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
         recycler_view.setHasFixedSize(true)
     }
 
@@ -99,7 +95,7 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
     }
 
     override fun addOrder(position: Int) {
-        //listViewModel.listOrder.add(listViewModel.products.value?.get(position)?.product_id.toString())
+        listViewModel.listOrder.add(listViewModel.products.value?.get(position)?.product_id.toString())
     }
 
 }

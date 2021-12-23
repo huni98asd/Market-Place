@@ -16,6 +16,7 @@ import com.example.projekt.model.Product
 
 class DataAdapter(
 private var list: ArrayList<Product>,
+//private var list2: ArrayList<Product>,
 private val context: Context,
 private val listener: OnItemClickListener,
 private val listener2: OnItemLongClickListener,
@@ -58,11 +59,6 @@ RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
             listener2.onItemLongClick(currentPosition)
             return true
         }
-
-        fun addOrder(position: Int) {
-            listener3.addOrder(position)
-        }
-
     }
 
     // 2. Called only a few times = number of items on screen + a few more ones

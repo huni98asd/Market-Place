@@ -36,11 +36,9 @@ data class Register(
 
 @JsonClass(generateAdapter = true)
 data class RegisterResponse (
-        var username: String,
-        var email: String,
-        var phone_number: Int = 0,
-        var token: String,
-        var creation_time: Long
+        var number: String,
+        var mesege: String,
+        var time: Long
 )
 
 @JsonClass(generateAdapter = true)

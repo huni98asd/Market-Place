@@ -78,7 +78,6 @@ class RegistrationFragment : Fragment() {
                 }
                 registerViewModel.token.observe(viewLifecycleOwner){
                     Log.d("xxxy", "registration valid")
-                    findNavController().navigate(R.id.action_registrationFragment_to_loginFragment)
                 }
             }
         }

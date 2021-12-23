@@ -17,11 +17,14 @@ import com.example.projekt.model.Product
 import com.example.projekt.repository.Repository
 import com.example.projekt.viewmodels.ListViewModel
 import com.example.projekt.viewmodels.ListViewModelFactory
+import com.example.projekt.viewmodels.LoginViewModel
+import com.example.projekt.viewmodels.LoginViewModelFactory
 
 
 class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.OnItemLongClickListener,DataAdapter.ClickOrderButton  {
 
     lateinit var listViewModel: ListViewModel
+    lateinit var loginViewModel: LoginViewModel
     private lateinit var recycler_view: RecyclerView
     private lateinit var adapter: DataAdapter
     lateinit var fav: MenuItem
@@ -30,7 +33,9 @@ class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAd
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
         val factory = ListViewModelFactory(Repository())
+        val factory2 = LoginViewModelFactory(this.requireContext(), Repository())
         listViewModel = ViewModelProvider(this, factory).get(ListViewModel::class.java)
+        loginViewModel = ViewModelProvider(requireActivity(), factory2).get(LoginViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -41,11 +46,13 @@ class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAd
         val view =  inflater.inflate(R.layout.fragment_list, container, false)
         recycler_view = view.findViewById(R.id.recycler_view)
         setupRecyclerView()
-        /*listViewModel.products.observe(viewLifecycleOwner){
+        listViewModel.products.observe(viewLifecycleOwner){
             if(listViewModel.products.value == listViewModel.listOrder )
             adapter.setData(listViewModel.products.value  as ArrayList<Product>)
             adapter.notifyDataSetChanged()
-        }*/
+        }
+        loginViewModel.showBottomNav.value = true
+        loginViewModel.showFloatingBottom.value = false
         return view
     }
 
