@@ -23,7 +23,8 @@ class RegisterViewModel(val context: Context, val repository: Repository) : View
 
     suspend fun registration() {
         val request =
-                Register(username = user.value!!.username, phone_number = user.value!!.phone_number, email = user.value!!.email ,password = user.value!!.password)
+                Register(username = user.value!!.username, phone_number = user.value!!.phone_number,
+                        email = user.value!!.email ,password = user.value!!.password)
         try {
             val result = repository.register(request)
             MyApplication.token = result.mesege

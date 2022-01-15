@@ -4,6 +4,7 @@ import com.example.projekt.data.*
 import com.example.projekt.model.AddOrder
 import com.example.projekt.model.ProductResponse
 import com.example.projekt.model.addProduct
+import com.example.projekt.model.addProductResponse
 import com.example.projekt.utils.Constants
 import com.example.projekt.utils.Constants.ADD_ORDER
 import com.example.projekt.utils.Constants.ADD_PRODUCT
@@ -37,5 +38,5 @@ interface MarketApi {
     suspend fun getOrders(@Header ("token")token: String):ProductResponse
 
     @POST(ADD_PRODUCT)
-    suspend fun addProduct(@Body request: addProduct): ProductResponse
+    suspend fun addProduct(@Body request: addProduct): addProductResponse
 }

@@ -18,7 +18,7 @@ import com.example.projekt.viewmodels.*
 import kotlinx.coroutines.launch
 
 
-class RegistrationFragment : Fragment() {
+class  RegistrationFragment : Fragment() {
     private lateinit var registerViewModel: RegisterViewModel
     lateinit var userName:EditText
     lateinit var phonNumber:EditText

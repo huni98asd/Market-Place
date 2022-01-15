@@ -3,7 +3,6 @@ package com.example.projekt.fragments.product
 import android.app.Activity
 import android.os.Bundle
 import android.view.*
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -20,8 +19,6 @@ import com.example.projekt.viewmodels.ListViewModel
 import com.example.projekt.viewmodels.ListViewModelFactory
 import com.example.projekt.viewmodels.LoginViewModel
 import com.example.projekt.viewmodels.LoginViewModelFactory
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 
 
 class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.OnItemLongClickListener,DataAdapter.ClickOrderButton {

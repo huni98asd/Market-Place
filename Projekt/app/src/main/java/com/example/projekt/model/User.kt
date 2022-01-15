@@ -3,10 +3,10 @@ package com.example.projekt.data
 import com.squareup.moshi.JsonClass
 
 data class User(
-        var username: String="",
-        var password: String="",
-        var email: String="",
-        var phone_number: String=""
+    var username: String="",
+    var password: String="",
+    var email: String="",
+    var phone_number: String=""
 )
 
 
@@ -49,3 +49,4 @@ data class getUser(
         var password: String,
         var pic: Int
 )
+

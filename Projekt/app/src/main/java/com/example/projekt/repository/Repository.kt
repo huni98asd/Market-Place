@@ -5,6 +5,7 @@ import com.example.projekt.data.*
 import com.example.projekt.model.AddOrder
 import com.example.projekt.model.ProductResponse
 import com.example.projekt.model.addProduct
+import com.example.projekt.model.addProductResponse
 import com.example.projekt.utils.Constants
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -35,7 +36,7 @@ class  Repository {
         return RetrofitInstance.api.getOrders(token)
     }
 
-    suspend fun addProduct(request: addProduct): ProductResponse{
+    suspend fun addProduct(request: addProduct): addProductResponse{
         return RetrofitInstance.api.addProduct(request)
     }
 }

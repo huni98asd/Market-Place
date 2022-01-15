@@ -14,7 +14,7 @@ import com.example.projekt.R
 import com.example.projekt.model.Product
 
 
-class DataAdapter(
+class  DataAdapter(
 private var list: ArrayList<Product>,
 //private var list2: ArrayList<Product>,
 private val context: Context,

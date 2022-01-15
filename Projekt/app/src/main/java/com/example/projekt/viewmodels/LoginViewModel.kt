@@ -10,8 +10,7 @@ import com.example.projekt.data.LoginRequest
 import com.example.projekt.data.User
 import com.example.projekt.repository.Repository
 
-class
-LoginViewModel(val context: Context, val repository: Repository) : ViewModel() {
+class LoginViewModel(val context: Context, val repository: Repository) : ViewModel() {
     var token: MutableLiveData<String> = MutableLiveData()
     var user = MutableLiveData<User>()
     var showBottomNav:MutableLiveData<Boolean> = MutableLiveData(true)
