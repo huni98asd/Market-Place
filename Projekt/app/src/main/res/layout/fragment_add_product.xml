@@ -1,40 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:paddingEnd="40dp"
-        android:paddingRight="40dp"
-        android:paddingLeft="40dp"
-        android:paddingTop="0dp"
-        tools:context=".fragments.product.AddProductFragment">
-
-        <!--<androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/horizontalRecyclerViewAddImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints"
-            android:orientation="horizontal">
-
-        </androidx.recyclerview.widget.RecyclerView>-->
+        tools:context=".fragments.product.AddProductFragment"
+        android:paddingBottom="40dp">
 
 
         <EditText
             android:id="@+id/editTextTitleProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="Title"
@@ -46,6 +29,7 @@
             android:id="@+id/editTextDescriptionProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="Short description"
@@ -57,56 +41,13 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="Give us detals about your fare"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/switchAOI" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Contact details"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDescriptionProduct" />
-
-        <EditText
-            android:id="@+id/editTextPersonName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Email"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPersonName" />
-
-        <EditText
-            android:id="@+id/editTextPhoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Phon number"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -154,6 +95,7 @@
             android:id="@+id/editTextPriceProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="Price/amount"
@@ -165,10 +107,11 @@
             android:id="@+id/editTextAvailableProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Available amount"
+            android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextPriceProduct" />
 
@@ -176,6 +119,7 @@
             android:id="@+id/switchAOI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="Inactive"
             app:layout_constraintStart_toStartOf="parent"
@@ -185,11 +129,11 @@
             android:id="@+id/btnPreviewMyFair"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="32dp"
             android:text="Preview my fair"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescriptionProduct" />
 
         <Button
             android:id="@+id/btnLaunchMyFair"
@@ -201,14 +145,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnPreviewMyFair" />
 
-        <ImageView
+        <ImageSwitcher
             android:id="@+id/imageViewAddView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/ic_launcher_background"
+            android:backgroundTint="@color/white"
+            android:backgroundTintMode="src_in"
+            android:hapticFeedbackEnabled="false"
+            android:textAlignment="textEnd"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            app:srcCompat="@drawable/ic_add_a_photo_24" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

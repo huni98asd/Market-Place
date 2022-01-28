@@ -12,16 +12,13 @@ import kotlinx.coroutines.launch
 
 class ProfilViewModel(context: Context, private val repository: Repository) : ViewModel() {
     var user = MutableLiveData<User>()
+    var token: MutableLiveData<String> = MutableLiveData()
 
 
     init{
-        Log.d("xxx", "ProfilViewModel constructor - Token: ${MyApplication.token}")
-        getProfil()
+        user.value = User( )
     }
 
-    fun getIndex(){
-
-    }
 
     fun getProfil() {
         viewModelScope.launch {

@@ -11,19 +11,20 @@ import com.example.projekt.model.addProduct
 import com.example.projekt.repository.Repository
 
 class AddProductViewModel(val context: Context, val repository: Repository) : ViewModel() {
-    var product = MutableLiveData<Product>()
+    var product : MutableLiveData<Product> = MutableLiveData()
     var token: MutableLiveData<String> = MutableLiveData()
-    var images:ArrayList<Uri?>? = null
+    var images:ArrayList<Uri?>? = ArrayList()
 
     init {
-        //product.value = Product()
+        product.value = Product()
+
     }
 
 
     suspend fun addNewProduct() {
         val request =
-            addProduct(images = product.value!!.images,title = product.value!!.username,
-                description = product.value!!.description,product.value!!.price_per_unit,
+            addProduct(title = product.value!!.title,
+                description = product.value!!.description,price_per_unit =  product.value!!.price_per_unit,
                 units = product.value!!.units,is_active = product.value!!.is_active,rating = product.value!!.rating,
                 amount_type = product.value!!.amount_type,price_type = product.value!!.price_type)
         try {

@@ -22,9 +22,9 @@
         <item>USD</item>
     </string-array>
 
-    <string-array name="AvailableAmount">
-        <item>Kg</item>
-        <item>g</item>
+    <string-array name="amountType">
+        <item>kg</item>
+        <item>gr</item>
         <item>mg</item>
     </string-array>
 

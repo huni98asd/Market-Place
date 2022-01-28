@@ -25,8 +25,8 @@ class ProfileFragment : Fragment() {
         //setHasOptionsMenu(true)
         //listViewModel.showBottomNav.value = true
         super.onCreate(savedInstanceState)
-        val factory = ListViewModelFactory(Repository())
-        profilViewModel = ViewModelProvider(this, factory).get(ProfilViewModel::class.java)
+        val factory = ProfilViewModel(this.requireContext(),Repository())
+        //profilViewModel = ViewModelProvider(requireActivity(), factory).get(ProfilViewModel::class.java)
 
     }
 

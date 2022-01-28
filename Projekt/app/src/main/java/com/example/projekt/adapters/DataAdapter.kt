@@ -94,4 +94,5 @@ RecyclerView.Adapter<DataAdapter.DataViewHolder>() {
     fun setData(newlist: ArrayList<Product>){
         list = newlist
     }
+
 }

@@ -47,11 +47,12 @@ class MyMarketListFragment: Fragment() , DataAdapter.OnItemClickListener, DataAd
         val view =  inflater.inflate(R.layout.fragment_list, container, false)
         recycler_view = view.findViewById(R.id.recycler_view)
         setupRecyclerView()
+
         listViewModel.products.observe(viewLifecycleOwner) {
-            listViewModel.products.value!!.filter { it.username == loginViewModel.user.value!!.username }.forEach {
-                adapter.setData(listViewModel.products.value as ArrayList<Product>)
-                adapter.notifyDataSetChanged()
-            }
+
+        adapter.setData(listViewModel.products.value as ArrayList<Product>)
+        adapter.notifyDataSetChanged()
+
         }
         loginViewModel.showBottomNav.value = true
         loginViewModel.showFloatingBottom.value = true
