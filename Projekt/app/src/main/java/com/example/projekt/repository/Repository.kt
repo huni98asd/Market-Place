@@ -20,7 +20,7 @@ class  Repository {
         return RetrofitInstance.api.getProducts(token)
     }
 
-    suspend fun getProfil(token: String):User{
+    suspend fun getProfil(token: String): LoginResponse{
         return RetrofitInstance.api.profil(token)
     }
 

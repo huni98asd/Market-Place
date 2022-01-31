@@ -49,8 +49,9 @@ class MyMarketListFragment: Fragment() , DataAdapter.OnItemClickListener, DataAd
         setupRecyclerView()
 
         listViewModel.products.observe(viewLifecycleOwner) {
+        //listViewModel.products.value!!.filter { it.username == loginViewModel.user.toString() }
 
-        adapter.setData(listViewModel.products.value as ArrayList<Product>)
+        adapter.setData(listViewModel.products.value!!.filter {  it.username == "huni21" /*loginViewModel.user.toString()*/ } as ArrayList<Product>)
         adapter.notifyDataSetChanged()
 
         }

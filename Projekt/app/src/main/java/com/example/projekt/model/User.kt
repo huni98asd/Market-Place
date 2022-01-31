@@ -6,7 +6,8 @@ data class User(
     var username: String="",
     var password: String="",
     var email: String="",
-    var phone_number: String=""
+    var phone_number: String="",
+    var token: String=""
 )
 
 
@@ -41,12 +42,5 @@ data class RegisterResponse (
         var time: Long
 )
 
-@JsonClass(generateAdapter = true)
-data class getUser(
-        var username: String,
-        var email: String,
-        var phone_number: Int = 0,
-        var password: String,
-        var pic: Int
-)
+
 

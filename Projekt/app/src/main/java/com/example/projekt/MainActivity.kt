@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         loginViewModel = ViewModelProvider(this, factory).get(LoginViewModel::class.java)
 
         btnNav=findViewById(R.id.bottom_navigation)
+
         btnFA=findViewById(R.id.floatingActionButton)
 
         //btnNav.visibility = View.GONE

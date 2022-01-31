@@ -29,7 +29,7 @@ interface MarketApi {
     suspend fun register(@Body request: Register):RegisterResponse
 
     @GET(USERINFO_URL)
-    suspend fun profil(@Header("token") response: String):User
+    suspend fun profil(@Header("token") token: String ):LoginResponse
 
     @POST(ADD_ORDER)
     suspend fun addOrder(@Body request: AddOrder): ProductResponse
@@ -39,4 +39,5 @@ interface MarketApi {
 
     @POST(ADD_PRODUCT)
     suspend fun addProduct(@Body request: addProduct): addProductResponse
+
 }

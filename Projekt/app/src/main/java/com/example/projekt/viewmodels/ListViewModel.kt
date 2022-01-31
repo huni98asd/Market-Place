@@ -4,6 +4,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.projekt.MyApplication
 import com.example.projekt.data.LoginRequest
@@ -17,6 +18,7 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
     var products: MutableLiveData<List<Product>> = MutableLiveData()
     var myFares: MutableLiveData<List<Product>> = MutableLiveData()
     var myMarket: MutableLiveData<List<Product>> = MutableLiveData()
+    //lateinit var loginViewModel: LoginViewModel = LoginViewModel(this ,repository)
 
     var listOrder =  mutableListOf<String>()
 
