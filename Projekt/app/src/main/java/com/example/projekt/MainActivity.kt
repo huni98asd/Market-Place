@@ -72,5 +72,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    companion object {
+        var userName = ""
+    }
 
 }

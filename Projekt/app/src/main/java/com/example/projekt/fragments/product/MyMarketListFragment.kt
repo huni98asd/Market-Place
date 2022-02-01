@@ -48,10 +48,9 @@ class MyMarketListFragment: Fragment() , DataAdapter.OnItemClickListener, DataAd
         recycler_view = view.findViewById(R.id.recycler_view)
         setupRecyclerView()
 
-        listViewModel.products.observe(viewLifecycleOwner) {
+        listViewModel.myMarket.observe(viewLifecycleOwner) {
         //listViewModel.products.value!!.filter { it.username == loginViewModel.user.toString() }
-
-        adapter.setData(listViewModel.products.value!!.filter {  it.username == "huni21" /*loginViewModel.user.toString()*/ } as ArrayList<Product>)
+            adapter.setData(listViewModel.myMarket.value as ArrayList<Product>)
         adapter.notifyDataSetChanged()
 
         }

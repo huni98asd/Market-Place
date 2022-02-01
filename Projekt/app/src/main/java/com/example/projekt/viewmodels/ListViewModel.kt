@@ -27,7 +27,7 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
         Log.d("xxx", "ListViewModel constructor - Token: ${MyApplication.token}")
         getProducts()
         //addOrder()
-        //getMyMareket()
+        getMyMareket()
         //getOrders()
     }
 
@@ -50,10 +50,8 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
     fun getMyMareket(){
         viewModelScope.launch {
             try {
-                val result = repository.getProducts(MyApplication.token)
-                result.products.filter { it.username == "huni21" }.forEach{
-                    products.value = result.products
-                }
+                val result = repository.getMyProducts(MyApplication.token)
+                    myMarket.value = result.products
                 Log.d("xxx", "ListViewModel - #products:  ${result.item_count}")
             }catch(e: Exception){
                 Log.d("xxx", "ListViewMofdel exception: ${e.toString()}")

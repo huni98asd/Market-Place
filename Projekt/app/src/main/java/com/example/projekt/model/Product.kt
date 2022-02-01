@@ -49,7 +49,17 @@ data class addProduct(
 
 @JsonClass(generateAdapter = true)
 data class addProductResponse(
-    val code:Int,
-    val message:String,
-    val timestamp:Long
+    val creation:String,
+    val product_id:String,
+    val username:String,
+    val is_active:Boolean,
+    val price_per_unit:String,
+    val units:String,
+    val description:String,
+    val title:String,
+    val rating:Double,
+    val amount_type:String,
+    val price_type:String,
+    val images:List<Image> = emptyList(),
+    val creation_time:Long
 )

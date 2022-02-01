@@ -93,6 +93,7 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
 
     override fun addOrder(position: Int) {
         listViewModel.listOrder.add(listViewModel.products.value?.get(position)?.product_id.toString())
+
     }
 
 }

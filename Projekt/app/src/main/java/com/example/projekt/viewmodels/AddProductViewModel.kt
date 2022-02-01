@@ -3,6 +3,7 @@ package com.example.projekt.viewmodels
 import android.content.Context
 import android.net.Uri
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.projekt.MyApplication
@@ -22,18 +23,19 @@ class AddProductViewModel(val context: Context, val repository: Repository) : Vi
 
 
     suspend fun addNewProduct() {
-        val request =
-            addProduct(title = product.value!!.title,
-                description = product.value!!.description,price_per_unit =  product.value!!.price_per_unit,
-                units = product.value!!.units,is_active = product.value!!.is_active,rating = product.value!!.rating,
-                amount_type = product.value!!.amount_type,price_type = product.value!!.price_type)
         try {
-            val result = repository.addProduct(request)
-            MyApplication.token = result.message
+            val result = repository.addProduct(token = MyApplication.token,title = product.value!!.title,
+                    description = product.value!!.description,price_per_unit =  product.value!!.price_per_unit,
+                    units = product.value!!.units,is_active = product.value!!.is_active,rating = product.value!!.rating,
+                    amount_type = product.value!!.amount_type,price_type = product.value!!.price_type)
+            MyApplication.token = result.title
             token.value = result.toString()
             Log.d("xxx", "MyApplication - token:  ${MyApplication.token}")
+            Toast.makeText(context,"${result.title}",Toast.LENGTH_SHORT).show()
+
         } catch (e: Exception) {
             Log.d("xxx", "LoginViewModel - exception: ${e.toString()}")
+            Toast.makeText(context,"${e.toString()}",Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -47,8 +47,8 @@ class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAd
         recycler_view = view.findViewById(R.id.recycler_view)
         setupRecyclerView()
         listViewModel.products.observe(viewLifecycleOwner){
-            if(listViewModel.products.value == listViewModel.listOrder )
-            adapter.setData(listViewModel.products.value  as ArrayList<Product>)
+
+            adapter.setData(listViewModel.products.value!!.filter { it.product_id == listViewModel.listOrder.toString() }  as ArrayList<Product>)
             adapter.notifyDataSetChanged()
         }
         loginViewModel.showBottomNav.value = true

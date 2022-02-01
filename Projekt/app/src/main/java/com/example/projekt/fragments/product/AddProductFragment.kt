@@ -151,7 +151,6 @@ class AddProductFragment : Fragment() {
             }
 
             lifecycleScope.launch{
-                Toast.makeText(context,"Sikeresen hozzáadva",Toast.LENGTH_SHORT).show()
                 adddProductViewMoldel.addNewProduct()
             }
             adddProductViewMoldel.token.observe(viewLifecycleOwner){

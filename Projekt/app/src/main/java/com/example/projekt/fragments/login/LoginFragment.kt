@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.projekt.MainActivity
 import com.example.projekt.R
 import com.example.projekt.repository.Repository
 import com.example.projekt.viewmodels.ListViewModel
@@ -81,6 +82,7 @@ class LoginFragment : Fragment() {
                 loginViewModel.user.value.let {
                     if (it != null) {
                         it.username = userName.text.toString()
+                        MainActivity.userName = userName.text.toString()
                     }
                     if (it != null) {
                         it.password = inputPassword.text.toString()
