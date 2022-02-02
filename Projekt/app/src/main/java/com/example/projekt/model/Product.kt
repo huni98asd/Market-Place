@@ -35,17 +35,6 @@ data class AddOrder(
        val token:String
 )
 
-@JsonClass(generateAdapter = true)
-data class addProduct(
-    val title: String,
-    val description: String,
-    val price_per_unit: String,
-    val units: String,
-    val is_active: Boolean,
-    val rating: Double,
-    val amount_type: String,
-    val price_type: String
-)
 
 @JsonClass(generateAdapter = true)
 data class addProductResponse(
@@ -62,4 +51,19 @@ data class addProductResponse(
     val price_type:String,
     val images:List<Image> = emptyList(),
     val creation_time:Long
+)
+
+@JsonClass(generateAdapter = true)
+data class addOrdersResponse(
+        val product_id:String,
+        val is_active:Boolean,
+        val price_per_unit:String,
+        val units:String,
+        val description:String,
+        val title:String,
+        val rating:Double,
+        val amount_type:String,
+        val price_type:String,
+        val images:List<Image> = emptyList(),
+        val creation_time:Long
 )

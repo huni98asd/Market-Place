@@ -67,6 +67,9 @@
         <action
             android:id="@+id/action_myMarketListFragment_to_addProductFragment"
             app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_myMarketListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/updatingProfileFragment"
@@ -77,7 +80,11 @@
         android:id="@+id/myFaresListFragment"
         android:name="com.example.projekt.fragments.product.MyFaresListFragment"
         android:label="fragment_my_fares_list"
-        tools:layout="@layout/fragment_my_fares_list" />
+        tools:layout="@layout/fragment_my_fares_list" >
+        <action
+            android:id="@+id/action_myFaresListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addProductFragment"
         android:name="com.example.projekt.fragments.product.AddProductFragment"

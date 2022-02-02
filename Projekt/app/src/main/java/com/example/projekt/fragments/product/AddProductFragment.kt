@@ -126,28 +126,19 @@ class AddProductFragment : Fragment() {
         btnLaunchMyFair.setOnClickListener{
 
             adddProductViewMoldel.product.value?.let {
+                if( editTextTitleProduct.length() != 0 && editTextDescriptionProduct.length() != 0 && editTextAvailableProduct.length() != 0 && editTextPriceProduct.length() != 0 ) {
 
-                it.title=editTextTitleProduct.text.toString()
-                it.amount_type="kg"
-                it.description=editTextDescriptionProduct.text.toString()
-                it.price_type="10"
-                it.is_active=switchCheck
-                it.price_per_unit=editTextPriceProduct.text.toString()
-                it.units=editTextAvailableProduct.text.toString()
-                it.rating=5.5
-
-                /* if(it != null){
-                            it.title = editTextTitleProduct.text.toString()
-                        }
-                        if(it != null){
-                            it.title = editTextDescriptionProduct.text.toString()
-                        }
-                        if(it != null){
-                            it.title = editTextPriceProduct.text.toString()
-                        }
-                        if(it != null){
-                            it.title = editTextAvailableProduct.text.toString()
-                        }*/
+                    it.title = editTextTitleProduct.text.toString()
+                    it.amount_type = "kg"
+                    it.description = editTextDescriptionProduct.text.toString()
+                    it.price_type = "10"
+                    it.is_active = switchCheck
+                    it.price_per_unit = editTextPriceProduct.text.toString()
+                    it.units = editTextAvailableProduct.text.toString()
+                    it.rating = 5.5
+                }else{
+                    Toast.makeText(context,"Kérem töltse ki a hiányzo részeket",Toast.LENGTH_SHORT).show()
+                }
             }
 
             lifecycleScope.launch{

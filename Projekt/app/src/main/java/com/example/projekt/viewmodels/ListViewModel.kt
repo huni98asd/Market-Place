@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.projekt.MainActivity.Companion.products
 import com.example.projekt.MyApplication
 import com.example.projekt.data.LoginRequest
 import com.example.projekt.model.AddOrder
@@ -15,13 +16,11 @@ import kotlinx.coroutines.launch
 
 
 class ListViewModel(private val repository: Repository) : ViewModel() {
-    var products: MutableLiveData<List<Product>> = MutableLiveData()
+    //var products: MutableLiveData<List<Product>> = MutableLiveData()
     var myFares: MutableLiveData<List<Product>> = MutableLiveData()
     var myMarket: MutableLiveData<List<Product>> = MutableLiveData()
     //lateinit var loginViewModel: LoginViewModel = LoginViewModel(this ,repository)
-
     var listOrder =  mutableListOf<String>()
-
 
     init{
         Log.d("xxx", "ListViewModel constructor - Token: ${MyApplication.token}")

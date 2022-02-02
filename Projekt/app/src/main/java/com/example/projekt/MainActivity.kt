@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.projekt.model.Product
 import com.example.projekt.repository.Repository
 import com.example.projekt.viewmodels.ListViewModel
 import com.example.projekt.viewmodels.ListViewModelFactory
@@ -20,6 +22,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     private lateinit var loginViewModel: LoginViewModel
+
+    companion object {
+        var products: MutableLiveData<List<Product>> = MutableLiveData()
+    }
 
     lateinit var btnNav:BottomNavigationView
     lateinit var btnFA:FloatingActionButton
@@ -72,8 +78,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    companion object {
-        var userName = ""
-    }
 
 }

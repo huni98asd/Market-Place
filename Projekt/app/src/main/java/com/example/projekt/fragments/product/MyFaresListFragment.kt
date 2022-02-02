@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projekt.MainActivity.Companion.products
+import com.example.projekt.MyApplication
 import com.example.projekt.R
 import com.example.projekt.adapters.DataAdapter
 import com.example.projekt.model.Product
@@ -46,9 +48,9 @@ class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAd
         val view =  inflater.inflate(R.layout.fragment_list, container, false)
         recycler_view = view.findViewById(R.id.recycler_view)
         setupRecyclerView()
-        listViewModel.products.observe(viewLifecycleOwner){
+        products.observe(viewLifecycleOwner){
 
-            adapter.setData(listViewModel.products.value!!.filter { it.product_id == listViewModel.listOrder.toString() }  as ArrayList<Product>)
+            adapter.setData(products.value!!.filter { it.product_id == listViewModel.listOrder.toString() }  as ArrayList<Product>)
             adapter.notifyDataSetChanged()
         }
         loginViewModel.showBottomNav.value = true
@@ -88,7 +90,10 @@ class MyFaresListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAd
 
 
     override fun onItemClick(position: Int) {
-        this.findNavController().navigate(R.id.action_listFragment_to_productDetailsFragment)
+        MyApplication.thisProduct = products.value!![position].product_id
+        MyApplication.position = position
+        //Toast.makeText(context,"${MyApplication.position}",Toast.LENGTH_SHORT).show()
+        this.findNavController().navigate(R.id.action_myFaresListFragment_to_productDetailsFragment)
     }
 
     override fun onItemLongClick(position: Int) {

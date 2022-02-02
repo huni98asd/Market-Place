@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projekt.MyApplication
 import com.example.projekt.R
 import com.example.projekt.adapters.DataAdapter
 import com.example.projekt.model.Product
@@ -19,6 +20,8 @@ import com.example.projekt.viewmodels.ListViewModel
 import com.example.projekt.viewmodels.ListViewModelFactory
 import com.example.projekt.viewmodels.LoginViewModel
 import com.example.projekt.viewmodels.LoginViewModelFactory
+import com.example.projekt.MainActivity.Companion.products
+
 
 
 class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.OnItemLongClickListener,DataAdapter.ClickOrderButton {
@@ -48,8 +51,8 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
         val view =  inflater.inflate(R.layout.fragment_list, container, false)
         recycler_view = view.findViewById(R.id.recycler_view)
         setupRecyclerView()
-        listViewModel.products.observe(viewLifecycleOwner){
-            adapter.setData(listViewModel.products.value as ArrayList<Product>)
+        products.observe(viewLifecycleOwner){
+            adapter.setData(products.value as ArrayList<Product>)
             adapter.notifyDataSetChanged()
         }
         loginViewModel.showBottomNav.value = true
@@ -83,8 +86,11 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
 
 
     override fun onItemClick(position: Int) {
+        MyApplication.thisProduct = products.value!![position].product_id
+        MyApplication.position = position
+        //Toast.makeText(context,"${MyApplication.position}",Toast.LENGTH_SHORT).show()
         this.findNavController().navigate(R.id.action_listFragment_to_productDetailsFragment)
-        //Toast.makeText(context,position.toString(),Toast.LENGTH_SHORT).show()
+        //Toast.makeText(context,"${listViewModel.thisProduct}",Toast.LENGTH_SHORT).show()
     }
 
     override fun onItemLongClick(position: Int) {
@@ -92,7 +98,7 @@ class ListFragment : Fragment() , DataAdapter.OnItemClickListener, DataAdapter.O
     }
 
     override fun addOrder(position: Int) {
-        listViewModel.listOrder.add(listViewModel.products.value?.get(position)?.product_id.toString())
+        listViewModel.listOrder.add(products.value?.get(position)?.product_id.toString())
 
     }
 

@@ -1,6 +1,7 @@
 package com.example.projekt.repository
 
 import com.example.projekt.MainActivity
+import com.example.projekt.MyApplication
 import com.example.projekt.MyApplication.Companion.token
 import com.example.projekt.api.RetrofitInstance
 import com.example.projekt.data.*
@@ -25,7 +26,7 @@ class  Repository {
     }
 
     suspend fun getMyProducts(token: String):ProductResponse{
-        return RetrofitInstance.api.getMyPruducts(token,"{\"username\":\"${ MainActivity.userName}\"}")
+        return RetrofitInstance.api.getMyPruducts(token,"{\"username\":\"${ MyApplication.userName}\"}")
     }
 
     suspend fun getProfil(token: String): LoginResponse{

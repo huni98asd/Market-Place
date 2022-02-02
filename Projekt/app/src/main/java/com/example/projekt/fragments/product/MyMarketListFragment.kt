@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projekt.MainActivity
+import com.example.projekt.MyApplication
 import com.example.projekt.R
 import com.example.projekt.adapters.DataAdapter
 import com.example.projekt.model.Product
@@ -92,7 +94,10 @@ class MyMarketListFragment: Fragment() , DataAdapter.OnItemClickListener, DataAd
 
 
     override fun onItemClick(position: Int) {
-        this.findNavController().navigate(R.id.action_listFragment_to_productDetailsFragment)
+        MyApplication.thisProduct = MainActivity.products.value!![position].product_id
+        MyApplication.position = position
+        //Toast.makeText(context,"${MyApplication.position}",Toast.LENGTH_SHORT).show()
+        this.findNavController().navigate(R.id.action_myMarketListFragment_to_productDetailsFragment)
     }
 
     override fun onItemLongClick(position: Int) {
