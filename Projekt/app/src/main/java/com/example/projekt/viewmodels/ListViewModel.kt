@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.projekt.MainActivity.Companion.myMarket
 import com.example.projekt.MainActivity.Companion.products
 import com.example.projekt.MyApplication
 import com.example.projekt.data.LoginRequest
@@ -18,7 +19,6 @@ import kotlinx.coroutines.launch
 class ListViewModel(private val repository: Repository) : ViewModel() {
     //var products: MutableLiveData<List<Product>> = MutableLiveData()
     var myFares: MutableLiveData<List<Product>> = MutableLiveData()
-    var myMarket: MutableLiveData<List<Product>> = MutableLiveData()
     //lateinit var loginViewModel: LoginViewModel = LoginViewModel(this ,repository)
     var listOrder =  mutableListOf<String>()
 
@@ -58,16 +58,15 @@ class ListViewModel(private val repository: Repository) : ViewModel() {
         }
     }
 
-    /*suspend fun addOrder(position: Int){
-        val request = AddOrder( token = products.value?.get(position)!!.product_id )
-        try{
-            val result = repository.addOrder(request)
-
-
+    suspend fun deleteMyMarket(productId: String){
+        try {
+            val result = repository.removeProduct(MyApplication.token,productId )
+            Log.d("xxx", "ListViewMofdel exception: ${result.message}")
         }catch (e: Exception){
-            Log.d("xxx", "LoginViewModel - exception: ${e.toString()}")
+            Log.d("xxx", "ListViewMofdel exception: ${e.toString()}")
         }
-    }*/
+    }
+
 
     fun getOrders(){
         viewModelScope.launch {

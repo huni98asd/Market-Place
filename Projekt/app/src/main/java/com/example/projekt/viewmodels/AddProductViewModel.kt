@@ -31,7 +31,7 @@ class AddProductViewModel(val context: Context, val repository: Repository) : Vi
             MyApplication.token = result.title
             token.value = result.toString()
             Log.d("xxx", "MyApplication - token:  ${MyApplication.token}")
-            Toast.makeText(context,"${result.title}",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"A(z) ${result.title} sikeresen hozzáadva",Toast.LENGTH_SHORT).show()
 
         } catch (e: Exception) {
             Log.d("xxx", "LoginViewModel - exception: ${e.toString()}")

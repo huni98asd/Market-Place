@@ -9,6 +9,7 @@ object Constants {
     const val GET_ORDERS="orders"
     const val ADD_ORDER="orders/add"
     const val ADD_PRODUCT="products/add"
+    const val DELETE_PRODUCT="products/remove"
 
 
 }

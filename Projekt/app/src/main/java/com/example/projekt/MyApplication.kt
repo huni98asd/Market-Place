@@ -8,5 +8,7 @@ class MyApplication: Application(){
         var token: String =""
         var thisProduct: String =""
         var position:Int = 0
+        var myProductposition:Int = 0
+        var positionDeleteItem:String =""
     }
 }

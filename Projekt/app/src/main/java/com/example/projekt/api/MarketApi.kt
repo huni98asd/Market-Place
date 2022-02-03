@@ -1,10 +1,7 @@
 package com.example.projekt.api
 
 import com.example.projekt.data.*
-import com.example.projekt.model.AddOrder
-import com.example.projekt.model.ProductResponse
-import com.example.projekt.model.addProduct
-import com.example.projekt.model.addProductResponse
+import com.example.projekt.model.*
 import com.example.projekt.utils.Constants
 import com.example.projekt.utils.Constants.ADD_ORDER
 import com.example.projekt.utils.Constants.ADD_PRODUCT
@@ -32,8 +29,8 @@ interface MarketApi {
     @GET(USERINFO_URL)
     suspend fun profil(@Header("token") token: String ):LoginResponse
 
-    @POST(ADD_ORDER)
-    suspend fun addOrder(@Body request: AddOrder): ProductResponse
+   /* @POST(ADD_ORDER)
+    suspend fun addOrder(@Body request: AddOrder): ProductResponse*/
 
     @GET(GET_ORDERS)
     suspend fun getOrders(@Header ("token")token: String):ProductResponse
@@ -55,5 +52,22 @@ interface MarketApi {
             @Part("price_type") price_type:String
     ) : addProductResponse
 
+    @Multipart
+    @POST(Constants.ADD_ORDER)
+    suspend fun addOrder(
+            @Header("token")token: String,
+            @Part("title")title: RequestBody,
+            @Part("description")description: String,
+            @Part("price_per_units")price_type: String,
+            @Part("units") units:String,
+            @Part("owner_username")owner_username: String
+    ) : addOrdersResponse
 
+    @DELETE(Constants.DELETE_PRODUCT)
+    suspend fun deleteMyMarket(
+            @Path("id")id:String
+    ): deleteMyMarket
+
+    @POST(Constants.DELETE_PRODUCT)
+    suspend fun removeProduct(@Header("token") token: String, @Query("product_id") product_id: String): deleteMyMarket
 }

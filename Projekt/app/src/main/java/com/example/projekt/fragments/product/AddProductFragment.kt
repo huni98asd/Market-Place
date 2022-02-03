@@ -121,7 +121,6 @@ class AddProductFragment : Fragment() {
     private fun addProduct(){
         var switchCheck = false
 
-
         if(switchActivation.isChecked){ switchCheck = true }
         btnLaunchMyFair.setOnClickListener{
 
@@ -131,7 +130,7 @@ class AddProductFragment : Fragment() {
                     it.title = editTextTitleProduct.text.toString()
                     it.amount_type = "kg"
                     it.description = editTextDescriptionProduct.text.toString()
-                    it.price_type = "10"
+                    it.price_type = "ron"
                     it.is_active = switchCheck
                     it.price_per_unit = editTextPriceProduct.text.toString()
                     it.units = editTextAvailableProduct.text.toString()

@@ -50,9 +50,9 @@ class MyMarketListFragment: Fragment() , DataAdapter.OnItemClickListener, DataAd
         recycler_view = view.findViewById(R.id.recycler_view)
         setupRecyclerView()
 
-        listViewModel.myMarket.observe(viewLifecycleOwner) {
+        MainActivity.myMarket.observe(viewLifecycleOwner) {
         //listViewModel.products.value!!.filter { it.username == loginViewModel.user.toString() }
-            adapter.setData(listViewModel.myMarket.value as ArrayList<Product>)
+            adapter.setData(MainActivity.myMarket.value as ArrayList<Product>)
         adapter.notifyDataSetChanged()
 
         }
@@ -94,14 +94,15 @@ class MyMarketListFragment: Fragment() , DataAdapter.OnItemClickListener, DataAd
 
 
     override fun onItemClick(position: Int) {
-        MyApplication.thisProduct = MainActivity.products.value!![position].product_id
-        MyApplication.position = position
+        MyApplication.thisProduct = MainActivity.myMarket.value!![position].product_id
+        MyApplication.myProductposition = position
         //Toast.makeText(context,"${MyApplication.position}",Toast.LENGTH_SHORT).show()
         this.findNavController().navigate(R.id.action_myMarketListFragment_to_productDetailsFragment)
     }
 
     override fun onItemLongClick(position: Int) {
-//        TODO("Not yet implemented")
+        //MyApplication.positionDeleteItem = MainActivity.products.value!![position].product_id
+        //listViewModel.deleteMyMarket(MainActivity.products.value!![position].product_id)
     }
 
     override fun addOrder(position: Int) {

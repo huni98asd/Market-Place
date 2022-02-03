@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         var products: MutableLiveData<List<Product>> = MutableLiveData()
+        var myMarket: MutableLiveData<List<Product>> = MutableLiveData()
     }
 
     lateinit var btnNav:BottomNavigationView
